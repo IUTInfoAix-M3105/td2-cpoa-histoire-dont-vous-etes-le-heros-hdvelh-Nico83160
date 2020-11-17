@@ -60,6 +60,7 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple[] getDaughters() {
 		/* TO BE COMPLETED */
+		return daughters;
 	}
 
 	/**
@@ -86,6 +87,7 @@ public class NodeMultiple {
 	 */
 	public Object getData() {
 		/* TO BE COMPLETED */
+		return data;
 	}
 
 	/**
@@ -101,6 +103,7 @@ public class NodeMultiple {
 	 */
 	public boolean hasDaughters() {
 		/* TO BE COMPLETED */
+		
 	}
 
 	/* Constructors */
@@ -122,6 +125,8 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple(Object data) {
 		/* TO BE COMPLETED */
+		this();
+		this.data = data;
 }
 
 // eof
