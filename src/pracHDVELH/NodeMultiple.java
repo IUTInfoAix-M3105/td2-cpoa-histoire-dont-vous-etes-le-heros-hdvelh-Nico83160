@@ -80,6 +80,7 @@ public class NodeMultiple {
 	 */
 	public void addDaughter(NodeMultiple daughter) {
 		/* TO BE COMPLETED */
+		
 	}
 
 	/**
@@ -102,9 +103,16 @@ public class NodeMultiple {
 	 *         daughter node.
 	 */
 	public boolean hasDaughters() {
-		/* TO BE COMPLETED */
-		
-	}
+        /* TO BE COMPLETED */
+		if (daughters == null) {
+			return false;
+		}
+        int i = 0;
+        while (i < daughters.length && daughters[i] == null) {
+        	i++;
+        }
+        return i < daughters.length ? true : false;
+    }
 
 	/* Constructors */
 	/**
