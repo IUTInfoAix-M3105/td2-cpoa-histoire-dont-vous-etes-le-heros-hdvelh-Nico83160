@@ -22,7 +22,7 @@ public class NodeMultiple {
 	@Override
 	public String toString() {
 		/* TO BE COMPLETED */
-	}
+		return data.toString();	}
 
 	/* Getters/Setters */
 	/**
@@ -91,7 +91,7 @@ public class NodeMultiple {
 		{
 		  daughters[daughters.length+1] = daughter;
 		}
-		return
+		return;
 	}
 
 	/**
