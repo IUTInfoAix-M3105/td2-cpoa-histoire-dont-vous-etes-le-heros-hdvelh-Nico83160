@@ -5,8 +5,10 @@
  */
 package pracHDVELH;
 
+import java.net.IDN;
 import java.util.Scanner;
 
+import jdk.jfr.Unsigned;
 import myUtils.ErrorNaiveHandler;
 
 /**
@@ -14,6 +16,11 @@ import myUtils.ErrorNaiveHandler;
  *
  */
 public class Event extends NodeMultiple {
+	private GUIManager gui;
+	private int id;
+	private int chosenPath;
+	private String playerAnswer;
+	
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
@@ -23,6 +30,7 @@ public class Event extends NodeMultiple {
 	 */
 	public String getPlayerAnswer() {
 		/* TO BE COMPLETED */
+		return playerAnswer;
 	}
 
 	/**
@@ -30,6 +38,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setPlayerAnswer(String playerAnswer) {
 		/* TO BE COMPLETED */
+		this.playerAnswer = playerAnswer;
 	}
 
 	/**
@@ -37,6 +46,7 @@ public class Event extends NodeMultiple {
 	 */
 	public Scanner getReader() {
 		/* TO BE COMPLETED */
+		return gui.getInputReader();
 	}
 
 	/**
@@ -44,6 +54,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setReader(Scanner reader) {
 		/* TO BE COMPLETED */
+		gui.setInputReader(reader);
 	}
 
 	/**
@@ -51,6 +62,7 @@ public class Event extends NodeMultiple {
 	 */
 	public int getChosenPath() {
 		/* TO BE COMPLETED */
+		return chosenPath;
 	}
 
 	/**
@@ -58,6 +70,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setChosenPath(int chosenPath) {
 		/* TO BE COMPLETED */
+		this.chosenPath = chosenPath;
 	}
 
 	/* Methods */
@@ -82,6 +95,7 @@ public class Event extends NodeMultiple {
 	@Override
 	public Event getDaughter(int i) {
 		/* TO BE COMPLETED */
+		return (Event) super.getDaughter(i);
 	}
 
 	/**
@@ -98,6 +112,7 @@ public class Event extends NodeMultiple {
 	 */
 	public GUIManager getGui() {
 		/* TO BE COMPLETED */
+		return gui;
 	}
 
 	/**
@@ -105,6 +120,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setGui(GUIManager gui) {
 		/* TO BE COMPLETED */
+		this.gui = gui;
 	}
 
 	/**
@@ -112,9 +128,10 @@ public class Event extends NodeMultiple {
 	 */
 	public int getId() {
 		/* TO BE COMPLETED */
+		return id;
 	}
 
-	/* Methods */
+	public void run() {
 	/* TO BE COMPLETED */
 	}
 }
