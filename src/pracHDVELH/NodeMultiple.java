@@ -35,6 +35,7 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple getDaughter(int i) {
 		/* TO BE COMPLETED */
+		return daughters[i];
 	}
 
 	/**
@@ -72,6 +73,7 @@ public class NodeMultiple {
 	 */
 	public void setDaughters(NodeMultiple[] daughters) {
 		/* TO BE COMPLETED */
+		this.daughters = daughters;
 	}
 
 	/**
@@ -84,14 +86,16 @@ public class NodeMultiple {
 	 */
 	public void addDaughter(NodeMultiple daughter) {
 		/* TO BE COMPLETED */
-		if (daughters == null) {
-			return;
-		}
-		if (daughters.length <= NODE_MAX_ARITY && daughter != null)
-		{
-		  daughters[daughters.length+1] = daughter;
-		}
-		return;
+		if (daughter == null)
+            return;
+        int i = 0;
+        while (i < daughters.length) {
+            if (daughters[i] == null) {
+                daughters[i] = daughter;
+                return;
+            }
+            i += 1;
+        }
 	}
 
 	/**
@@ -107,6 +111,7 @@ public class NodeMultiple {
 	 */
 	public void setData(Object data) {
 		/* TO BE COMPLETED */
+		this.data = data;
 	}
 
 	/**
@@ -115,14 +120,12 @@ public class NodeMultiple {
 	 */
 	public boolean hasDaughters() {
         /* TO BE COMPLETED */
-		if (daughters == null) {
-			return false;
-		}
-        int i = 0;
-        while (i < daughters.length && daughters[i] == null) {
-        	i++;
+		for (NodeMultiple node : daughters) {
+            if (node != null) {
+                return true;
+            }
         }
-        return i < daughters.length ? true : false;
+        return false;
     }
 
 	/* Constructors */
