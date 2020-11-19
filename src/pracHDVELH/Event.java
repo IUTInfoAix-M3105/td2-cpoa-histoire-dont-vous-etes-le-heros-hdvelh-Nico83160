@@ -16,7 +16,7 @@ import myUtils.ErrorNaiveHandler;
 public class Event extends NodeMultiple {
 	private GUIManager gui;
 	private int id;
-	private int chosenPath = 0;
+	private int chosenPath;
 	private String playerAnswer;
 	private Scanner reader;
 	
@@ -24,6 +24,21 @@ public class Event extends NodeMultiple {
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
 
+	private static int lastID = -1;
+	
+	/* CONSTRUSCTEUR */
+	public Event() {
+		
+	}
+	
+	public Event(GUIManager gui, String data) {
+		super(data);
+		this.gui = gui;
+		reader = gui.getInputReader();
+		id = ++lastID;
+		chosenPath = -1;
+	}
+	
 	/**
 	 * @return the playerAnswer
 	 */
@@ -135,17 +150,11 @@ public class Event extends NodeMultiple {
 
 	public void run() {
 	/* TO BE COMPLETED */
-		
-	}
-	
-	public Event() {
-		gui = new GUIManager();
-		setData(null);
-	}
-	
-	public Event(GUIManager gui, String data) {
-		setGui(gui);
-		setData(data);
+		gui.outputln(this.toString());
+		gui.output(PROMPT_ANSWER);
+		playerAnswer = reader.next();
+		chosenPath = interpretAnswer();
+		return this.getDaughter(chosenPath);
 	}
 }
 
