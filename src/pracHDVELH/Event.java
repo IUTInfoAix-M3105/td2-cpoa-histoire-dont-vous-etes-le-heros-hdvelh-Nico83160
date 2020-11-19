@@ -5,10 +5,8 @@
  */
 package pracHDVELH;
 
-import java.net.IDN;
 import java.util.Scanner;
 
-import jdk.jfr.Unsigned;
 import myUtils.ErrorNaiveHandler;
 
 /**
@@ -18,8 +16,9 @@ import myUtils.ErrorNaiveHandler;
 public class Event extends NodeMultiple {
 	private GUIManager gui;
 	private int id;
-	private int chosenPath;
+	private int chosenPath = 0;
 	private String playerAnswer;
+	private Scanner reader;
 	
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
@@ -54,7 +53,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setReader(Scanner reader) {
 		/* TO BE COMPLETED */
-		gui.setInputReader(reader);
+		this.reader = reader;
 	}
 
 	/**
@@ -79,6 +78,7 @@ public class Event extends NodeMultiple {
 	 */
 	public String getData() {
 		/* TO BE COMPLETED */
+		return super.toString();
 	}
 
 	/**
@@ -87,6 +87,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setData(String data) {
 		/* TO BE COMPLETED */
+		super.setData(data);
 	}
 
 	/**
@@ -105,6 +106,7 @@ public class Event extends NodeMultiple {
 	 */
 	public void setDaughter(Event daughter, int i) {
 		/* TO BE COMPLETED */
+		super.setDaughter(daughter, i);
 	}
 
 	/**
@@ -133,6 +135,17 @@ public class Event extends NodeMultiple {
 
 	public void run() {
 	/* TO BE COMPLETED */
+		
+	}
+	
+	public Event() {
+		gui = new GUIManager();
+		setData(null);
+	}
+	
+	public Event(GUIManager gui, String data) {
+		setGui(gui);
+		setData(data);
 	}
 }
 
