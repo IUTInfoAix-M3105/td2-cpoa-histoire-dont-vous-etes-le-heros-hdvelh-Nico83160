@@ -149,6 +149,6 @@ public class NodeMultiple {
 		/* TO BE COMPLETED */
 		this();
 		this.data = data;
+	}
 }
-
 // eof
