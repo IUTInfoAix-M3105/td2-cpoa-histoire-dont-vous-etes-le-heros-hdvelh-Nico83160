@@ -17,6 +17,27 @@ public class Scenario {
 
 	/* TO BE COMPLETED */
 
+	public Scenario (GUIManager gui, Event startEvent) {
+		this.gui = gui;
+		this.head = startEvent;
+	}
+
+	public Event getHead() {
+		return this.head;
+	}
+
+	public String run() {
+		if (this.getHead() == null) {
+			this.gui.outputErr(this.MSG_EMPTY_SCENARIO);
+		}
+
+		Event currentEvent = this.getHead();
+		while(!currentEvent.isFinal()) currentEvent = currentEvent.run();
+
+		this.gui.outputln(currentEvent.getData());
+		return this.MSG_FINALE;
+	}
+	
 	/* MAIN */
 	public static void main(String[] args) {
 		Scenario scenario;
