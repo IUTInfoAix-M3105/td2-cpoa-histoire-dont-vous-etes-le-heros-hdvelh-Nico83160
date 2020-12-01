@@ -19,6 +19,8 @@ public class Event extends NodeMultiple {
 	private int chosenPath;
 	private String playerAnswer;
 	private Scanner reader;
+	private String pathAnswer;
+	protected String data;
 	
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
@@ -28,15 +30,17 @@ public class Event extends NodeMultiple {
 	
 	/* CONSTRUSCTEUR */
 	public Event() {
-		
+		this(new GUIManager(),"");
 	}
 	
 	public Event(GUIManager gui, String data) {
 		super(data);
 		this.gui = gui;
+		this.data = data;
 		reader = gui.getInputReader();
-		id = ++lastID;
-		chosenPath = -1;
+		this.id = lastID + 1;
+		lastID = lastID + 1;
+		chosenPath = 0;
 	}
 	
 	/**
@@ -150,11 +154,11 @@ public class Event extends NodeMultiple {
 
 	public void run() {
 	/* TO BE COMPLETED */
-		gui.outputln(this.toString());
-		gui.output(PROMPT_ANSWER);
-		playerAnswer = reader.next();
-		chosenPath = interpretAnswer();
-		return this.getDaughter(chosenPath);
+		gui.outputln(this.getData());
+		gui.outputln(PROMPT_ANSWER);
+		playerAnswer=reader.next();
+		chosenPath=interpretAnswer();
+		return getDaughter(chosenPath);
 	}
 }
 
